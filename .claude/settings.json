@@ -1,0 +1,26 @@
+{
+	"permissions": {
+		"allow": [
+			"Bash(npm run check)",
+			"Bash(npm run format)",
+			"Bash(npm run lint)",
+			"Bash(npm run dev)",
+			"Bash(npm run build)",
+			"Bash(npx dprint fmt)"
+		]
+	},
+	"hooks": {
+		"PostToolUse": [
+			{
+				"matcher": "Write|Edit",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "npx dprint fmt 2>/dev/null || true"
+					}
+				]
+			}
+		]
+	},
+	"mcpServers": {}
+}
